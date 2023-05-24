@@ -12,17 +12,14 @@
         <title>Cadastro - Topic Master</title>
     </head>
     <body>
-        <h2>Para ser um mestre dos tópicos, preencha as informações abaixo:</h2>
-        <form method="POST">
-            <p>Seu nome completo:</p>
-            <input type="text" name="nome"/>
-            <p>Login que deseja utilizar no site:</p>
+        <h2>Bem vindo de volta mestre, forneça suas informações abaixo:</h2>
+        <form method="POST" action="login">
+            <p class="label">Login:</p>
             <input type="text" name="login"/>
-            <p>Email de acesso:</p>
-            <input type="text" name="email"/>
-            <p>Insira uma senha, para sua segurança:</p>
+            <p>Senha:</p>
             <input type="password" name="senha"/>
-            <input type="submit" value="Se cadastrar"/>
+            <input type="submit" value="Fazer login"/>
+            <br>
         </form>
     </body>
 </html>

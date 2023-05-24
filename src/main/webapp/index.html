@@ -5,15 +5,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h2>Olá mestre! Insira abaixo as suas informações de login:</h2>
-        <form method="POST" action="autenticacao">
-            <p class="label">Login:</p>
+        <h2>Olá mestre! Preencha os campos abaixo para começar a participar da Topic Master:</h2>
+        <form method="POST" action="cadastro">
+            <p>Seu nome completo:</p>
+            <input type="text" name="nome"/>
+            <p>Login que deseja utilizar no site:</p>
             <input type="text" name="login"/>
-            <p>Senha:</p>
+            <p>Email de acesso:</p>
+            <input type="text" name="email"/>
+            <p>Insira uma senha, para sua segurança:</p>
             <input type="password" name="senha"/>
-            <input type="submit" value="Fazer login"/>
-            <br>
-            <a href="cadastro.jsp">Ainda não é cadastrado? Cadastre-se clicando aqui!</a>
+            <input type="submit" value="Se cadastrar"/>
         </form>
+        <a href="login.jsp">Já é cadastrado? Clique aqui para acessar a sua conta</a>
     </body>
 </html>
