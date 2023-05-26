@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro - Topic Master</title>
+        <title>Login - Topic Master</title>
     </head>
     <body>
         <h2>Bem vindo de volta mestre, forneça suas informações abaixo:</h2>
@@ -19,7 +19,6 @@
             <p>Senha:</p>
             <input type="password" name="senha"/>
             <input type="submit" value="Fazer login"/>
-            <br>
         </form>
     </body>
 </html>

@@ -9,9 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Página Inicial - Topic Master</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Bem-vindo ${nome}!</h1>
+        <h2>O que deseja fazer hoje?</h2>
+        <a href="criarTopico.jsp"><input type="submit" value="Criar novo tópico"/></a>
+        <a href="ranking.jsp"><input type="button" value="Ver ranking" /></a>
+            
+        </form>
+        <h2>Tópicos abertos</h2>
+        
     </body>
 </html>

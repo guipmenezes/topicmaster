@@ -21,7 +21,7 @@ public class AutenticadorDAO {
 
     public String autenticaLogin(String login, String senha) throws SQLException {
 
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/topicmaster", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE login = ? AND senha = ?");
             pstm.setString(1, login);
             pstm.setString(2, senha);
@@ -36,18 +36,17 @@ public class AutenticadorDAO {
         }
     }
 
-    public Usuario cadastraUsuario(String login, String email, String nome, String senha) throws SQLException {
+    public void cadastraUsuario(Usuario u) throws SQLException {
 
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/topicmaster", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("INSERT INTO usuario (login, email, nome, senha, pontos) VALUES(?,?,?,?,?)");
-            pstm.setString(1, login);
-            pstm.setString(2, email);
-            pstm.setString(3, nome);
-            pstm.setString(4, senha);
+            pstm.setString(1, u.getLogin());
+            pstm.setString(2, u.getEmail());
+            pstm.setString(3, u.getNome());
+            pstm.setString(4, u.getSenha());
             pstm.setInt(5, 0);
 
-            ResultSet rs = pstm.executeQuery();
+            pstm.executeUpdate();
         }
-        return null;
     }
 }

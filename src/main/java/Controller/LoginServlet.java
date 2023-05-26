@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
+@WebServlet(urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -22,11 +22,12 @@ public class LoginServlet extends HttpServlet {
         
         AutenticadorDAO autentica = new AutenticadorDAO();
         try{
-            autentica.autenticaLogin(login, senha);
+            String nome = autentica.autenticaLogin(login, senha);
+            request.setAttribute("nome", nome);
             request.getRequestDispatcher("topicoInicial.jsp").forward(request, response);
         } catch(SQLException e) {
             request.setAttribute("erro", e.getMessage());
-            request.getRequestDispatcher("falha.jsp");
+            request.getRequestDispatcher("falha.jsp").forward(request, response);
         } 
     }
 
