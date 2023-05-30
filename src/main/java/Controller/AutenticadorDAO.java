@@ -21,7 +21,7 @@ public class AutenticadorDAO {
 
     public String autenticaLogin(String login, String senha) throws SQLException {
 
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE login = ? AND senha = ?");
             pstm.setString(1, login);
             pstm.setString(2, senha);
@@ -38,7 +38,7 @@ public class AutenticadorDAO {
 
     public void cadastraUsuario(Usuario u) throws SQLException {
 
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("INSERT INTO usuario (login, email, nome, senha, pontos) VALUES(?,?,?,?,?)");
             pstm.setString(1, u.getLogin());
             pstm.setString(2, u.getEmail());
@@ -47,6 +47,21 @@ public class AutenticadorDAO {
             pstm.setInt(5, 0);
 
             pstm.executeUpdate();
+        }
+    }
+
+    public String recuperaUsuario(String nome) throws SQLException {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE nome = ?");
+            pstm.setString(1, nome);
+
+            ResultSet rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("login");
+            } else {
+                throw new SQLException("Não foi achar o usuário");
+            }
         }
     }
 }

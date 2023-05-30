@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,13 +14,32 @@
         <title>Página Inicial - Topic Master</title>
     </head>
     <body>
-        <h1>Bem-vindo ${nome}!</h1>
-        <h2>O que deseja fazer hoje?</h2>
-        <a href="criarTopico.jsp"><input type="submit" value="Criar novo tópico"/></a>
-        <a href="ranking.jsp"><input type="button" value="Ver ranking" /></a>
-            
+        
+            <h1>Bem-vindo <a value="nome">${nome}</a>!</h1>
+            <h2>O que deseja fazer hoje?</h2>
+            <a href="criarTopico.jsp"><input type="submit" value="Criar novo tópico"/></a>
+            <a href="ranking.jsp"><input type="button" value="Ver ranking" /></a>
+        <form action="topicoInicialServlet">
+            <h2>Tópicos abertos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Criador por</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${topico}" var="tp">
+                    <tr>
+                        <td>${tp.titulo}</td>
+                        <td>${tp.login}</td>
+                    </tr>
+                    </c:forEach>
+                    
+                </tbody>
+            </table>
         </form>
-        <h2>Tópicos abertos</h2>
+        
         
     </body>
 </html>

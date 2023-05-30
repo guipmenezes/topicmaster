@@ -1,8 +1,5 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Topico extends Usuario{
     
@@ -19,6 +16,14 @@ public class Topico extends Usuario{
         return texto;
     }
     
+    public String getLogin() {
+        return login;
+    }
+    
+    public int getIdTopico() {
+        return idTopico;
+    }
+    
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -27,26 +32,7 @@ public class Topico extends Usuario{
         this.texto = texto;
     }
     
-    public String getUsuario() {
-        return login;
-    }
-    
     public void setLogin(String login) {
         this.login = login;
-    }
-    
-    
-    
-    public List<Topico> adicionarTopico(String titulo, String texto, String login) {
-        List<Topico> nt = new ArrayList<>();
-        
-        Topico tp = new Topico();
-        tp.setTitulo(titulo);
-        tp.setTexto(texto);
-        tp.setLogin(login);
-        
-        nt.add(tp);
-        
-        return nt;
     }
 }
