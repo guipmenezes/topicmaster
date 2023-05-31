@@ -1,4 +1,4 @@
-package Controller;
+package Controller.DAO;
 
 import Model.Topico;
 import java.sql.Connection;
@@ -50,6 +50,26 @@ public class TopicoDAO {
             pstm.setString(3, login);
 
             pstm.executeUpdate();
+        }
+    }
+    
+    public Topico topicoPorTitulo(String titulo) throws SQLException{
+        try(Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
+            Topico tp = new Topico();
+            
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM topico WHERE titulo = ?");
+            pstm.setString(1, titulo);
+            
+            ResultSet rs = pstm.executeQuery();
+            
+            if(rs.next()) {
+                tp.setIdTopico(rs.getInt("id_topico"));
+                tp.setTitulo(rs.getString("titulo"));
+                tp.setTexto(rs.getString("conteudo"));
+                tp.setLogin(rs.getString("login"));
+            }
+            
+            return tp;
         }
     }
     

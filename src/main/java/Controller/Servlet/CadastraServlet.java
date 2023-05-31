@@ -1,5 +1,6 @@
-package Controller;
+package Controller.Servlet;
 
+import Controller.DAO.AutenticadorDAO;
 import Model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;

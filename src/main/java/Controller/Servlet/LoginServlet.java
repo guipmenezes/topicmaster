@@ -1,5 +1,7 @@
-package Controller;
+package Controller.Servlet;
 
+import Controller.DAO.AutenticadorDAO;
+import Controller.DAO.TopicoDAO;
 import Model.Topico;
 import java.io.IOException;
 import java.sql.SQLException;

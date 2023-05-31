@@ -22,17 +22,11 @@
         <form action="topicoInicialServlet">
             <h2>Tópicos abertos</h2>
             <table>
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Criador por</th>
-                    </tr>
-                </thead>
                 <tbody>
                     <c:forEach items="${topico}" var="tp">
                     <tr>
-                        <td>${tp.titulo}</td>
-                        <td>${tp.login}</td>
+                        <td name="titulo">${tp.titulo}</td>
+                        <td name="login">${tp.login}</td>
                     </tr>
                     </c:forEach>
                     

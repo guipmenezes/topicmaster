@@ -35,4 +35,8 @@ public class Topico extends Usuario{
     public void setLogin(String login) {
         this.login = login;
     }
+    
+    public void setIdTopico(int idTopico) {
+        this.idTopico = idTopico;
+    }
 }
