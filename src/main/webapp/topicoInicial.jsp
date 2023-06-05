@@ -14,26 +14,26 @@
         <title>Página Inicial - Topic Master</title>
     </head>
     <body>
-        
-            <h1>Bem-vindo <a value="nome">${nome}</a>!</h1>
-            <h2>O que deseja fazer hoje?</h2>
-            <a href="criarTopico.jsp"><input type="submit" value="Criar novo tópico"/></a>
-            <a href="ranking.jsp"><input type="button" value="Ver ranking" /></a>
+
+        <h1>Bem-vindo <a value="nome">${nome}</a>!</h1>
+        <h2>O que deseja fazer hoje?</h2>
+        <a href="criarTopico.jsp"><input type="submit" value="Criar novo tópico"/></a>
+        <a href="ranking.jsp"><input type="button" value="Ver ranking" /></a>
         <form action="topicoInicialServlet">
             <h2>Tópicos abertos</h2>
             <table>
                 <tbody>
                     <c:forEach items="${topico}" var="tp">
-                    <tr>
-                        <td name="titulo">${tp.titulo}</td>
-                        <td name="login">${tp.login}</td>
-                    </tr>
+                        <tr>
+                            <td name="titulo"><a href="/paginaTopico.jsp">${tp.titulo}</a></td>
+                            <td name="login">${tp.login}</td>
+                        </tr>
                     </c:forEach>
-                    
+
                 </tbody>
             </table>
         </form>
-        
-        
+
+
     </body>
 </html>

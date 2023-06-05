@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(urlPatterns = {"/criaTopico"})
-public class criaTopicoServlet extends HttpServlet {
+public class CriaTopicoServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -4,7 +4,6 @@ import Controller.DAO.TopicoDAO;
 import Model.Topico;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = {"/topicoInicialServlet"})
-public class topicoInicialServlet extends HttpServlet {
+public class TopicoInicialServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,11 +31,7 @@ public class topicoInicialServlet extends HttpServlet {
         } catch(SQLException e) {
             request.setAttribute("erro", e.getMessage());
             request.getRequestDispatcher("falha.jsp").forward(request, response);
-        }
-        
-        
-        
-        
+        } 
     }
 
 }

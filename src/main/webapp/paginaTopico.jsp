@@ -12,7 +12,7 @@
         <title>Tópico para discussão</title>
     </head>
     <body>
-        <form action="PaginaTopicoServlet">
+        <form action="paginaTopicoServlet">
             <h2>${topico.titulo}</h2>     
             <p>Criado por: ${topico.login}</p>
             <p>${topico.texto}</p>
