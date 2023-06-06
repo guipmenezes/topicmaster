@@ -6,11 +6,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/topicoInicialServlet"})
+@WebServlet(urlPatterns = {"/topicoInicial"})
 public class TopicoInicialServlet extends HttpServlet {
     
     @Override
@@ -24,8 +25,8 @@ public class TopicoInicialServlet extends HttpServlet {
         String titulo = request.getParameter("titulo");
         
         try {
-            Topico tp = tpDAO.topicoPorTitulo(titulo);
-            request.setAttribute("topico", tp);
+            Topico topico = tpDAO.topicoPorTitulo(titulo);
+            request.setAttribute("topico", topico);
             request.getRequestDispatcher("paginaTopico.jsp").forward(request, response);
             
         } catch(SQLException e) {

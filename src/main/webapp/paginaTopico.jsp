@@ -1,22 +1,30 @@
 <%-- 
     Document   : paginaTopico
-    Created on : 31 de mai. de 2023, 12:28:12
+    Created on : 5 de jun. de 2023, 11:39:38
     Author     : urlas
 --%>
 
+<%@page import="Model.Topico"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tópico para discussão</title>
+        <title>Tópicos</title>
     </head>
     <body>
-        <form action="paginaTopicoServlet">
-            <h2>${topico.titulo}</h2>     
-            <p>Criado por: ${topico.login}</p>
-            <p>${topico.texto}</p>
+        <form action="paginaTopico">
+            <% 
+                String topico = request.getParameter("topico");
+            %>
+            
+            <!-- Uma das possíveis soluções vai ser abstrair em outros métodos, e cada um pegando
+            uma parte e distribuindo aqui na página-->
+            <h2>Essa é uma página do tópico</h2>
+            <p><%= topico %></p>
+            <p>guimenezes</p>
         </form>
-        
+
     </body>
 </html>

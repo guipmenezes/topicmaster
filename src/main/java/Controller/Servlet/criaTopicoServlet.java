@@ -31,7 +31,6 @@ public class CriaTopicoServlet extends HttpServlet {
         AutenticadorDAO at = new AutenticadorDAO();
         String nome = tp.iteradorCookie(cookieUsuario, "nome");
         
-        
         try {
             String login = at.recuperaUsuario(nome);
             tp.criaTopico(titulo, conteudo, login);
