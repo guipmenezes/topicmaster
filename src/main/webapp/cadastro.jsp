@@ -13,7 +13,7 @@
     </head>
     <body>
         <h2>Olá mestre! Preencha os campos abaixo para começar a participar da Topic Master:</h2>
-        <form method="POST" action="cadastro">
+        <form method="post" action="cadastro">
             <p>Seu nome completo:</p>
             <input type="text" name="nome"/>
             <p>Login que deseja utilizar no site:</p>

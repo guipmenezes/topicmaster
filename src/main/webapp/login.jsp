@@ -13,7 +13,7 @@
     </head>
     <body>
         <h2>Bem vindo de volta mestre, forneça suas informações abaixo:</h2>
-        <form method="POST" action="login">
+        <form method="post" action="login">
             <p class="label">Login:</p>
             <input type="text" name="login"/>
             <p>Senha:</p>

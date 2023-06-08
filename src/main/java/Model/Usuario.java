@@ -58,8 +58,12 @@ public class Usuario {
         this.pontos = pontos;
     }
     
+    public int adicionaPonto(int ponto) {
+        return pontos += ponto;
+    }
+    
     public String toString() {
-        return "Usuario [login = " + login + ", email = " + email + ", nome = " + nome;
+        return "Usuario [login = " + login + ", email = " + email + ", nome = " + nome + ", pontos = " + pontos + "]";
     }
     
 }

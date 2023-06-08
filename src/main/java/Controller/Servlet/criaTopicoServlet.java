@@ -32,7 +32,7 @@ public class CriaTopicoServlet extends HttpServlet {
         String nome = tp.iteradorCookie(cookieUsuario, "nome");
         
         try {
-            String login = at.recuperaUsuario(nome);
+            String login = at.recuperaUsuarioNome(nome);
             tp.criaTopico(titulo, conteudo, login);
             
             List<Topico> listaTopico = tp.retornaTopico();

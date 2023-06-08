@@ -50,7 +50,7 @@ public class AutenticadorDAO {
         }
     }
 
-    public String recuperaUsuario(String nome) throws SQLException {
+    public String recuperaUsuarioNome(String nome) throws SQLException {
         try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE nome = ?");
             pstm.setString(1, nome);
@@ -59,6 +59,27 @@ public class AutenticadorDAO {
 
             if (rs.next()) {
                 return rs.getString("login");
+            } else {
+                throw new SQLException("Não foi achar o usuário");
+            }
+        }
+    }
+    
+    public Usuario recuperaUsuarioLogin(String login) throws SQLException {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
+            Usuario u = new Usuario();
+            
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE login = ?");
+            pstm.setString(1, login);
+
+            ResultSet rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                u.setLogin(rs.getString("login"));
+                u.setNome(rs.getString("nome"));
+                u.setEmail(rs.getString("email"));
+                u.setPontos(rs.getInt("pontos"));
+                return u;
             } else {
                 throw new SQLException("Não foi achar o usuário");
             }

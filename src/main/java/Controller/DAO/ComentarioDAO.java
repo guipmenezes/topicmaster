@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ComentarioDAO {
@@ -24,7 +26,7 @@ public class ComentarioDAO {
         
         try(Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             
-            PreparedStatement pstm = con.prepareStatement("INSERT INTO comentario (comentario, login, idTopico) VALUES (?,?,?)");
+            PreparedStatement pstm = con.prepareStatement("INSERT INTO comentario (comentario, login, id_topico) VALUES (?,?,?)");
             pstm.setString(1, comentario);
             pstm.setString(2, login);
             pstm.setInt(3, idTopico);
@@ -33,24 +35,23 @@ public class ComentarioDAO {
         }
     }
     
-    public Comentario buscarComentarioPorIdPost(int idTopico) throws SQLException{
+    public List<Comentario> buscarComentarioPorIdPost(int idTopico) throws SQLException{
         try(Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
-            Comentario comen = new Comentario();
+            List<Comentario> list = new ArrayList<>();
             
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM comentario WHERE id_topico = ?");
             pstm.setInt(1, idTopico);
             
             ResultSet rs = pstm.executeQuery();
             
-            if(rs.next()) {
+            while(rs.next()) {
+                Comentario comen = new Comentario();
                 comen.setComentario(rs.getString("comentario"));
                 comen.setLogin(rs.getString("login"));
                 comen.setIdComentario(rs.getInt("id_comentario"));
-            } else {
-                throw new SQLException("Não conseguimos buscar o comentário");
+                list.add(comen);
             }
-            
-            return comen;
+            return list;
         }
     }
 }
