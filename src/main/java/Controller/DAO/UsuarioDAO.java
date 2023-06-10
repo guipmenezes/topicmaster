@@ -6,16 +6,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AutenticadorDAO {
+public class UsuarioDAO {
 
     static {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
-            Logger.getLogger(AutenticadorDAO.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -64,11 +66,11 @@ public class AutenticadorDAO {
             }
         }
     }
-    
+
     public Usuario recuperaUsuarioLogin(String login) throws SQLException {
         try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             Usuario u = new Usuario();
-            
+
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE login = ?");
             pstm.setString(1, login);
 
@@ -83,6 +85,28 @@ public class AutenticadorDAO {
             } else {
                 throw new SQLException("Não foi achar o usuário");
             }
+        }
+    }
+
+    public List<Usuario> listaUsuarios() throws SQLException {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
+            List<Usuario> list = new ArrayList<>();
+
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario");
+
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setLogin(rs.getString("login"));
+                u.setEmail(rs.getString("email"));
+                u.setNome(rs.getString("nome"));
+                u.setSenha(rs.getString("senha"));
+                u.setPontos(rs.getInt("pontos"));
+                list.add(u);
+            }
+
+            return list;
         }
     }
 }

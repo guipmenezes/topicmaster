@@ -18,7 +18,7 @@ public class ComentarioDAO {
         try {
             Class.forName("org.postgresql.Driver");
         } catch(ClassNotFoundException ex) {
-            Logger.getLogger(AutenticadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

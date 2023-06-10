@@ -1,6 +1,6 @@
 package Controller.Servlet;
 
-import Controller.DAO.AutenticadorDAO;
+import Controller.DAO.UsuarioDAO;
 import Controller.DAO.TopicoDAO;
 import Model.Topico;
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         
-        AutenticadorDAO autentica = new AutenticadorDAO();
+        UsuarioDAO autentica = new UsuarioDAO();
         TopicoDAO tpDAO = new TopicoDAO();
         
         try{

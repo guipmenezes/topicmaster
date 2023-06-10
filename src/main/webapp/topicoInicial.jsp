@@ -17,8 +17,10 @@
         <h1>Bem-vindo ${nome}</a>!</h1>
         <h2>O que deseja fazer hoje?</h2>
         <a href="criarTopico.jsp"><input type="submit" value="Criar novo tópico"/></a>
-        <a href="ranking.jsp"><input type="button" value="Ver ranking" /></a>
-        <form method="get" action="topicoInicial">
+        <form action="topicoInicial" method="get">
+            <a href="ranking.jsp"><input type="submit" value="Ver ranking" /></a>
+        </form>
+        <form method="post" action="topicoInicial">
             <h2>Tópicos abertos</h2>
             <table>
                 <tbody>

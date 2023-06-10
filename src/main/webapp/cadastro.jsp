@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro - TopicMaster</title>
+        <link rel="stylesheet" href="css/cadastro.css"/>
     </head>
     <body>
         <h2>Olá mestre! Preencha os campos abaixo para começar a participar da Topic Master:</h2>

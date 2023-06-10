@@ -18,7 +18,7 @@ public class TopicoDAO {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
-            Logger.getLogger(AutenticadorDAO.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 

@@ -1,7 +1,8 @@
 package Controller.Servlet;
 
-import Controller.DAO.AutenticadorDAO;
+import Controller.DAO.UsuarioDAO;
 import Controller.DAO.ComentarioDAO;
+import Controller.DAO.RankingDAO;
 import Controller.DAO.TopicoDAO;
 import Model.Comentario;
 import Model.Topico;
@@ -27,8 +28,9 @@ public class PaginaTopicoServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         
         TopicoDAO tpDAO = new TopicoDAO();
-        AutenticadorDAO autDAO = new AutenticadorDAO();
+        UsuarioDAO autDAO = new UsuarioDAO();
         ComentarioDAO comDAO = new ComentarioDAO();
+        RankingDAO rnk = new RankingDAO();
         
         Cookie[] cookies = request.getCookies();
         String nome = tpDAO.iteradorCookie(cookies, "nome");
@@ -39,6 +41,7 @@ public class PaginaTopicoServlet extends HttpServlet {
         try {
             String login = autDAO.recuperaUsuarioNome(nome);
             comDAO.inserirComentario(comentario, login, idTopico);
+            rnk.adicionaPontoComentario(login);
             
             List<Comentario> comList = comDAO.buscarComentarioPorIdPost(idTopico);
             Topico topico = tpDAO.topicoPorTitulo(titulo);

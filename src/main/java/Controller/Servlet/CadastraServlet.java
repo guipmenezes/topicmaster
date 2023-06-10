@@ -1,6 +1,6 @@
 package Controller.Servlet;
 
-import Controller.DAO.AutenticadorDAO;
+import Controller.DAO.UsuarioDAO;
 import Model.Usuario;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,7 +22,7 @@ public class CadastraServlet extends HttpServlet {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 
-        AutenticadorDAO autentica = new AutenticadorDAO();
+        UsuarioDAO autentica = new UsuarioDAO();
         Usuario usuario = new Usuario(login, email, nome, senha);
 
         try {

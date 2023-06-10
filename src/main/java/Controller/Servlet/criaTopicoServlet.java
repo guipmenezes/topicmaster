@@ -1,6 +1,7 @@
 package Controller.Servlet;
 
-import Controller.DAO.AutenticadorDAO;
+import Controller.DAO.UsuarioDAO;
+import Controller.DAO.RankingDAO;
 import Controller.DAO.TopicoDAO;
 import Model.Topico;
 import java.io.IOException;
@@ -28,12 +29,14 @@ public class CriaTopicoServlet extends HttpServlet {
         Cookie[] cookieUsuario = request.getCookies();
         
         TopicoDAO tp = new TopicoDAO();
-        AutenticadorDAO at = new AutenticadorDAO();
+        UsuarioDAO at = new UsuarioDAO();
+        RankingDAO rnk = new RankingDAO();
         String nome = tp.iteradorCookie(cookieUsuario, "nome");
         
         try {
             String login = at.recuperaUsuarioNome(nome);
             tp.criaTopico(titulo, conteudo, login);
+            rnk.adicionaPontoTopico(login);
             
             List<Topico> listaTopico = tp.retornaTopico();
             

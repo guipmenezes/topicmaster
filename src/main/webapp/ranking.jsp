@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,17 +13,28 @@
         <title>Ranking</title>
     </head>
     <body>
-        <h1>Ranking de pontuação Topic Master</h1>
-        <table>
-            <tbody>
-                <tr>
-                    <td>Nome</td>
-                    <td>Login</td>
-                    <td>Pontos</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        <form method="post" action="ranking">
+            <h1>Ranking de pontuação Topic Master</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Nome</td>
+                        <td>Login</td>
+                        <td>Pontos</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${usuario}" var="usuario" >
+                        <tr>
+                            <td>${usuario.nome}</td>
+                            <td>${usuario.login}</td>
+                            <td>${usuario.pontos}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <input type="submit" value="atualizar ranking"/>
+        </form>
         <p>Os requisitos para ganhar pontos são:</p>
         <li>10 pontos por tópico criado</li>
         <li>3 pontos por comentário</li>
