@@ -36,13 +36,14 @@ body {
 }
 
 .formulario-field {
-    margin-bottom: 1px solid #342609;
+    margin-bottom: 1px;
     width: 15rem;
     height: 1.5rem;
 }
 
 .formulario-btn {
     border: none;
+    cursor: pointer;
     width: 10rem;
     height: 3rem;
     font-size: large;

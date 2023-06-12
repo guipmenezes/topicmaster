@@ -16,24 +16,32 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tópicos</title>
+        <link rel="stylesheet" href="css/pagTopico.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
     </head>
     <body>
-        <form method="post" action="paginaTopico">
-            <div>
-                <h2>${topico.titulo}</h2>
-                <p>por ${topico.login}</p>
-                <p>${topico.texto}</p> 
+        <h1 id="titulo-master">TopicMaster</h1>
+        <form method="post" action="paginaTopico" id="form-topico">
+            <div class="topico-base">
+                <h2 class="form-titulo">${topico.titulo}</h2>
+                <p class="form-login">por ${topico.login}</p>
+                <p class="form-texto">${topico.texto}</p> 
             </div>
+            <h3>Comentários</h3>
             <div>
-                <h3>Comentários</h3>
                 <c:forEach items="${comentario}" var="com" >
-                    <p>${com.comentario}</p>
-                    <p>${com.login}</p>
+                    <div class="topico-com">
+                        <p class="com-com">${com.comentario}</p>
+                        <p class="com-login">${com.login}</p>
+                    </div>
                 </c:forEach>
             </div>
+            <h3>Adicionar comentário</h3>
             <div>
-                <h3>Adicionar comentário</h3>
-                <textarea placeholder="Adicione aqui seu comentário" name="comentario"></textarea>
+                <textarea placeholder="Adicione aqui seu comentário" cols="40" rows="5"  name="comentario"></textarea>
                 <input type="hidden" name="titulo" value="${topico.titulo}"/>
                 <input type="hidden" name="idTopico" value="${topico.idTopico}" />
                 <input type="submit" value="adicionar">

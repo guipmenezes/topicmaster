@@ -1,0 +1,47 @@
+body {
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titulo-master {
+    font-family: 'Trade Winds', cursive;
+    font-size: 40px;
+    color: #1B3409;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#form-topico {
+    background-color: #EAF5C4;
+    padding: 2rem;
+    box-shadow: 2px 2px 15px black;
+}
+
+.form-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: white;
+    border-radius: 1.5rem;
+    width: 10rem;
+    height: 3rem;
+    font-size: 16px;
+    background-color: #1B3409;
+    color: white;
+    margin: 1rem;
+}
+
+.regras {
+    font-size: 13px;
+}
