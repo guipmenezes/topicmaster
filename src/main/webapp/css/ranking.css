@@ -17,29 +17,24 @@ body {
     justify-content: center;
 }
 
-.titulo-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#tabela {
+    box-shadow: 1px 1px 10px black;
 }
 
-#form-topico {
-    background-color: #EAF5C4;
-    padding: 2rem;
-    box-shadow: 2px 2px 15px black;
+.tabela-titulo {
+    font-weight: bold;
+}
+
+.tabela-linha {
+    padding: 1.5rem;
 }
 
 .form-btn {
-    border: white;
-    border-radius: 1.5rem;
-    padding: 1rem 1.5rem 1rem 1.5rem;
-    font-size: 16px;
     background-color: #1B3409;
     color: white;
+    font-size: 17px;
+    padding: 1rem;
+    border-radius: 1.5rem;
     margin: 1rem;
     cursor: pointer;
-}
-
-.regras {
-    font-size: 13px;
 }

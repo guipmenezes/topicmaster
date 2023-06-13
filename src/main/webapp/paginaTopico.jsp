@@ -23,7 +23,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1 id="titulo-master">TopicMaster</h1>
+        <input type="button" href="topicoInicial.jsp" id="titulo-master" value="TopicMaster" />
         <form method="post" action="paginaTopico" id="form-topico">
             <div class="topico-base">
                 <h2 class="form-titulo">${topico.titulo}</h2>
@@ -40,11 +40,11 @@
                 </c:forEach>
             </div>
             <h3>Adicionar comentário</h3>
-            <div>
-                <textarea placeholder="Adicione aqui seu comentário" cols="40" rows="5"  name="comentario"></textarea>
+            <div class="com-add-container">
+                <textarea class="com-add"  placeholder="Adicione aqui seu comentário" cols="80"  name="comentario"></textarea>
                 <input type="hidden" name="titulo" value="${topico.titulo}"/>
                 <input type="hidden" name="idTopico" value="${topico.idTopico}" />
-                <input type="submit" value="adicionar">
+                <input class="form-btn" type="submit" value="Adicionar">
             </div>
         </form>
     </body>

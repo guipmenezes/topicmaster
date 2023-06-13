@@ -11,29 +11,35 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ranking</title>
+        <link rel="stylesheet" href="css/ranking.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
     </head>
     <body>
         <form method="post" action="ranking">
-            <h1>Ranking de pontuação Topic Master</h1>
-            <table>
+            <h1 id="titulo-master">TopicMaster</h1>
+            <h2>Ranking de pontuação Topic Master</h2>
+            <table id="tabela" border="1px">
                 <thead>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Login</td>
-                        <td>Pontos</td>
+                    <tr class="tabela-head">
+                        <td class="tabela-titulo">Nome</td>
+                        <td class="tabela-titulo">Login</td>
+                        <td class="tabela-titulo">Pontos</td>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach items="${usuario}" var="usuario" >
                         <tr>
-                            <td>${usuario.nome}</td>
-                            <td>${usuario.login}</td>
-                            <td>${usuario.pontos}</td>
+                            <td class="tabela-linha">${usuario.nome}</td>
+                            <td class="tabela-linha">${usuario.login}</td>
+                            <td class="tabela-linha">${usuario.pontos}</td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
-            <input type="submit" value="atualizar ranking"/>
+            <input class="form-btn" type="submit" value="Atualizar ranking"/>
         </form>
         <p>Os requisitos para ganhar pontos são:</p>
         <li>10 pontos por tópico criado</li>

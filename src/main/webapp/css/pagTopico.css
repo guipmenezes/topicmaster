@@ -12,6 +12,16 @@ body {
     font-size: 40px;
     color: #1B3409;
     cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 25px;
 }
 
 #form-topico {
@@ -47,4 +57,25 @@ body {
 .com-login {
     padding: -2rem;
     font-weight: bold;
+}
+
+.com-add-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.com-add {
+    padding: 1rem;
+}
+
+.form-btn {
+    padding: 1rem 1rem 1rem 1rem;
+    margin-left: 1rem;
+    background-color: #1B3409;
+    color: white;
+    font-size: 15px;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 10px black;
+    cursor: pointer;
 }
