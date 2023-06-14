@@ -3,5 +3,6 @@
 <dataset>
     <TOPICO id_topico="8" titulo="titulo topico 1" conteudo="conteudo topico 1" login="joao" />
     <TOPICO id_topico="9" titulo="titulo topico 2" conteudo="conteudo topico 2" login="maria" />
+    <TOPICO id_topico="13" titulo="titulo topico 3" conteudo="conteudo topico 3" login="maria" />
 </dataset>
 

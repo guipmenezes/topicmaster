@@ -1,6 +1,6 @@
 
-import Controller.DAO.UsuarioDAO;
-import Model.Usuario;
+import Controller.DAO.TopicoDAO;
+import Model.Topico;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.sql.SQLException;
@@ -11,7 +11,6 @@ import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +20,7 @@ import org.junit.Test;
 public class TesteTopicoDAO {
 
     JdbcDatabaseTester jdt;
-    TesteTopicoDAO dao = new TesteTopicoDAO();
+    TopicoDAO dao = new TopicoDAO();
     
     @Before
     public void setUp() throws ClassNotFoundException, MalformedURLException, DataSetException, Exception{
@@ -33,6 +32,39 @@ public class TesteTopicoDAO {
     
     @Test
     public void canReturnTopic() throws SQLException, Exception {
-      
+      List<Topico> list = dao.retornaTopico();
+      assertEquals(2, list.size());
+      assertEquals("titulo topico 1", list.get(0).getTitulo());
+    }
+    
+    @Test
+    public void canCreateTopic() throws SQLException, Exception {
+        
+        String titulo = "titulo topico 3";
+        String conteudo = "conteudo topico 3";
+        String login = "maria";
+        
+        dao.criaTopico(titulo, conteudo, login);
+        
+        IDataSet currentDataset = jdt.getConnection().createDataSet();
+        ITable currentTable = currentDataset.getTable("TOPICO");
+        IDataSet expectedDataset = new FlatXmlDataSetBuilder().build(new File("C:/Users/urlas/Documents/pasta-de-programacao/Projetos - ITA/projeto-topic-master/TopicMaster/src/test/java/expectedTopico.xml"));
+        ITable expectedTable = expectedDataset.getTable("TOPICO");
+        Assertion.assertEquals(expectedTable, currentTable);
+    }
+    
+    @Test
+    public void canReturnTopicByTitle() throws SQLException, Exception {
+        String titulo = "titulo topico 1";
+        
+        Topico expectedTopico = new Topico();
+        expectedTopico.setTitulo(titulo);
+        expectedTopico.setTexto("conteudo topico 1");
+        expectedTopico.setLogin("joao");
+        
+        Topico currentTopico = dao.topicoPorTitulo(titulo);
+        
+        
+        assertEquals(expectedTopico, currentTopico);
     }
 }
