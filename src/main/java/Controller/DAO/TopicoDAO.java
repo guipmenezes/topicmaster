@@ -25,7 +25,7 @@ public class TopicoDAO {
     public List<Topico> retornaTopico() throws SQLException {
         List<Topico> nt = new ArrayList<>();
 
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/coursera?charset=UTF-8", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("SELECT titulo, login FROM topico");
             
             ResultSet rs = pstm.executeQuery();
@@ -42,7 +42,7 @@ public class TopicoDAO {
     }
 
     public void criaTopico(String titulo, String conteudo, String login) throws SQLException {
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/coursera?charset=UTF-8", "postgres", "root")) {
 
             PreparedStatement pstm = con.prepareStatement("INSERT INTO topico (titulo, conteudo, login) VALUES(?,?,?)");
             pstm.setString(1, titulo);
@@ -54,7 +54,7 @@ public class TopicoDAO {
     }
     
     public Topico topicoPorTitulo(String titulo) throws SQLException{
-        try(Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
+        try(Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/coursera?charset=UTF-8", "postgres", "root")) {
             Topico tp = new Topico();
             
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM topico WHERE titulo = ?");

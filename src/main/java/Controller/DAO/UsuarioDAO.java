@@ -40,7 +40,7 @@ public class UsuarioDAO {
 
     public void cadastraUsuario(Usuario u) throws SQLException {
 
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/coursera?charset=UTF-8", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/topicmaster?charset=UTF-8", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("INSERT INTO usuario (login, email, nome, senha, pontos) VALUES(?,?,?,?,?)");
             pstm.setString(1, u.getLogin());
             pstm.setString(2, u.getEmail());
@@ -53,7 +53,7 @@ public class UsuarioDAO {
     }
 
     public String recuperaUsuarioNome(String nome) throws SQLException {
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/coursera?charset=UTF-8", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE nome = ?");
             pstm.setString(1, nome);
 
@@ -68,7 +68,7 @@ public class UsuarioDAO {
     }
 
     public Usuario recuperaUsuarioLogin(String login) throws SQLException {
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/coursera?charset=UTF-8", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             Usuario u = new Usuario();
 
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE login = ?");
@@ -89,7 +89,7 @@ public class UsuarioDAO {
     }
 
     public List<Usuario> listaUsuarios() throws SQLException {
-        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/coursera?charset=UTF-8", "postgres", "root")) {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             List<Usuario> list = new ArrayList<>();
 
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario ORDER BY pontos DESC");

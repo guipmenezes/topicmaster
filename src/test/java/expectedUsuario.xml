@@ -3,6 +3,6 @@
 <dataset>
     <USUARIO login="guilherme" email="guilherme@email.com" nome="Guilherme Menezes" senha="SenhaDoGuilherme" pontos="0"/>
     <USUARIO login="joao" email="joao@email.com" nome="Joao Pedro" senha="JoaozinhoSenha" pontos="100"/>
-    <USUARIO login="maria" email="maria@email.com" nome="Maria Aparecida" senha="SenhaDaAparecida" pontos="0"/>
+    <USUARIO login="maria" email="maria@email.com" nome="Maria Aparecida" senha="SenhaDaAparecida" pontos="200"/>
 </dataset>
 

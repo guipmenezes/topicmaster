@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Objects;
+
 public class Usuario {
 
     private String login;
@@ -61,5 +63,45 @@ public class Usuario {
     public String toString() {
         return "Usuario [login = " + login + ", email = " + email + ", nome = " + nome + ", pontos = " + pontos + "]";
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 73 * hash + Objects.hashCode(this.login);
+        hash = 73 * hash + Objects.hashCode(this.email);
+        hash = 73 * hash + Objects.hashCode(this.nome);
+        hash = 73 * hash + Objects.hashCode(this.senha);
+        hash = 73 * hash + this.pontos;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (this.pontos != other.pontos) {
+            return false;
+        }
+        if (!Objects.equals(this.login, other.login)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        return Objects.equals(this.senha, other.senha);
+    }
+    
+    
     
 }

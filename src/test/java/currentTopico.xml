@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+    <TOPICO id_topico="1" titulo="titulo topico 1" conteudo="conteudo topico 1" login="joao" />
+    <TOPICO id_topico="2" titulo="titulo topico 2" conteudo="conteudo topico 2" login="maria" />
+</dataset>
+
