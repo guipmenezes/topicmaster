@@ -63,8 +63,6 @@ public class TesteTopicoDAO {
         expectedTopico.setLogin("joao");
         
         Topico currentTopico = dao.topicoPorTitulo(titulo);
-        
-        
         assertEquals(expectedTopico, currentTopico);
     }
 }

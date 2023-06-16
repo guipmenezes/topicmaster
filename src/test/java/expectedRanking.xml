@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+    <USUARIO login="joao" email="joao@email.com" nome="Joao Pedro" senha="JoaozinhoSenha" pontos="103"/>
+    <USUARIO login="maria" email="maria@email.com" nome="Maria Aparecida" senha="SenhaDaAparecida" pontos="200"/>
+</dataset>
+
