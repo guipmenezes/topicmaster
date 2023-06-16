@@ -27,10 +27,10 @@ public class TopicoDAO {
 
         try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             PreparedStatement pstm = con.prepareStatement("SELECT titulo, login FROM topico");
-            
+
             ResultSet rs = pstm.executeQuery();
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 Topico tp = new Topico();
                 tp.setTitulo(rs.getString("titulo"));
                 tp.setLogin(rs.getString("login"));
@@ -45,37 +45,42 @@ public class TopicoDAO {
         try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
 
             PreparedStatement pstm = con.prepareStatement("INSERT INTO topico (titulo, conteudo, login) VALUES(?,?,?)");
-            pstm.setString(1, titulo);
-            pstm.setString(2, conteudo);
-            pstm.setString(3, login);
-
-            pstm.executeUpdate();
+            
+            if(titulo == "" || conteudo == "" || login == null) {
+                throw new SQLException("Os parâmetros passados não são válidos");
+            } else {
+                pstm.setString(1, titulo);
+                pstm.setString(2, conteudo);
+                pstm.setString(3, login);
+                
+                pstm.executeUpdate();
+            }
         }
     }
-    
-    public Topico topicoPorTitulo(String titulo) throws SQLException{
-        try(Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
+
+    public Topico topicoPorTitulo(String titulo) throws SQLException {
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/topicmaster?charset=UTF-8", "postgres", "root")) {
             Topico tp = new Topico();
-            
+
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM topico WHERE titulo = ?");
             pstm.setString(1, titulo);
-            
+
             ResultSet rs = pstm.executeQuery();
-            
-            if(rs.next()) {
+
+            if (rs.next()) {
                 tp.setIdTopico(rs.getInt("id_topico"));
                 tp.setTitulo(rs.getString("titulo"));
                 tp.setTexto(rs.getString("conteudo"));
                 tp.setLogin(rs.getString("login"));
             }
-            
+
             return tp;
         }
     }
-    
+
     //Gerenciamento de Cookie
     public String iteradorCookie(Cookie[] cookies, String objetoP) {
-        if(cookies != null) {
+        if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if ((cookie.getName() != null) && (cookie.getName().equals(objetoP))) {
                     objetoP = cookie.getValue();

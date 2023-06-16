@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-family: 'Trade Winds', cursive;
+    font-size: 40px;
+    color: #1B3409;
+}
+
+#erro-container {
+    background: #EAF5C4;
+    padding: 2rem;
+    box-shadow: 2px 2px 20px black;
+}
