@@ -23,11 +23,11 @@
                 <h2 class="titulo-top">Sobre o que deseja falar hoje?</h2>
                 <div>
                     <p>Título do tópico:</p>
-                    <textarea cols="100" rows="5" placeholder="Insira aqui um título..." name="titulo"></textarea>
+                    <textarea cols="100" rows="5" placeholder="Insira aqui um título..." name="titulo" required></textarea>
                 </div>
                 <div>
                     <p>Insira aqui o conteúdo do tópico</p>
-                    <textarea cols="100" rows="10" placeholder="Abra o seu coração..." rows="10" name="conteudo"></textarea>
+                    <textarea cols="100" rows="10" placeholder="Abra o seu coração..." rows="10" name="conteudo" required></textarea>
                 </div>
                 <input class="form-btn" type="submit" value="Criar tópico"/>
                 <p class="regras">Ao clicar em "Criar tópico" você concorda que qualquer ilegalidade ou informação falsa contida no texto do tópico será atribuída ao seu usuário.</p>

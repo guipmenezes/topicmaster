@@ -42,7 +42,9 @@
             <input class="form-btn" type="submit" value="Atualizar ranking"/>
         </form>
         <p>Os requisitos para ganhar pontos são:</p>
-        <li>10 pontos por tópico criado</li>
-        <li>3 pontos por comentário</li>
+        <ul>
+            <li>10 pontos por tópico criado</li>
+            <li>3 pontos por comentário</li>
+        </ul>
     </body>
 </html>

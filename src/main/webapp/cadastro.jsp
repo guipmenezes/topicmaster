@@ -21,13 +21,13 @@
         <h2 id="titulo">Olá mestre! Preencha os campos abaixo para começar a participar da Topic Master</h2>
         <form method="post" action="cadastro" id="form">
             <p class="formulario-label">Seu nome completo:</p>
-            <input class="formulario-field" type="text" name="nome"/>
+            <input class="formulario-field" type="text" name="nome" required/>
             <p class="formulario-label">Login que deseja utilizar no site:</p>
-            <input class="formulario-field" type="text" name="login"/>
+            <input class="formulario-field" type="text" name="login" required/>
             <p class="formulario-label">Email de acesso:</p>
-            <input class="formulario-field" type="text" name="email"/>
+            <input class="formulario-field" type="email" name="email" required/>
             <p class="formulario-label">Insira uma senha, para sua segurança:</p>
-            <input class="formulario-field" type="password" name="senha"/>
+            <input class="formulario-field" type="password" minlength="8" name="senha" required/>
             <br>
             <input class="formulario-btn" type="submit" value="Se cadastrar"/>
             <br>
