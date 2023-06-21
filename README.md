@@ -10,6 +10,6 @@ A aplicação está sendo feita utilizando Java EE, na arquitetura MVC (Model-Vi
 * Banco de dados PostgreSQL
 
 ### Exemplificação de funcionamento:
-[![Watch the video]()
+[![TopicMaster - Youtube]
 ](https://youtu.be/h2QLydTTtG8)
 
